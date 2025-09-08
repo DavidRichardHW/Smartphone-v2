@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* mobilefirst */
+    /* portrait */
+        /* body */
+            body{
+                /*box*/
+                    height: 100vh;
+                    min-width: 370px;
+                    width: 100vw;
+                
+                /*style*/
+                    background: url(../image/fundo-madeira.webp) center repeat;
+                    background-size: cover;
+            }
+            /* main */
+                main{
+                    /*layout*/
+                        display: grid;
+                        grid-template: 70vh 30vh / 1fr;
+                    
+                    /*box*/
+                        height: 100vh;
+                        width: 100vw;
+                }
+                /* smartphone */
+                    main > #smartphone{height: 100%;}
+                    main > #smartphone > #cell{
+                        /*layout*/
+                            aspect-ratio: 9/18;
+                            display: grid;
+                            grid-template: 1.08fr 76% 1fr / 1.16fr 86.8% 1fr;
+
+                        /*box*/
+                            margin: auto;
+                            max-height: 100%;
+                            max-width: 100%;
+
+                        /*style*/
+                            background: url(../image/frame-iphone.webp) center center no-repeat;
+                            background-size: contain;
+                    }
+                    main > #smartphone > #cell > #scream{
+                        background-color: rgb(240, 235, 235);
+                        grid-area: 2 / 2 / -2 / -2;
+                        height: 100%;
+                        width: 99%;
+                    }
+                /* /smartphone */
+                /* pages */
+                    main > #pages{
+                        /*layout*/
+                            display: grid;
+                            grid-template: repeat(2, auto) / repeat(3, auto);
+                            place-content: center space-around;
+                            row-gap: 10px;
+                            
+                        /*box*/
+                            padding-top: 10px;
+                            width: 100%;
+                    }
+                    main > #pages > a > img{
+                        /*box*/
+                            aspect-ratio: 1/1;
+                            width: 65px;
+
+                        /*style*/
+                            border-radius: 40px;
+
+                        /*effect*/
+                            transition: border-radius .5s, transform, .5s;
+                    }
+                    main > #pages > a > img:hover{
+                        border-radius: 20px;
+                        transform: scale(1.1);
+                    }
+                /* /pages */
+            /* /main */
+        /* /body */
+    /* /portrait */
+    /* landscape */
+        @media screen and (orientation: landscape) {
+            main{
+                grid-template: 1fr / 90vw 10vw;
+                max-height: unset;
+            }
+            main > #pages{
+                grid-template: repeat(6, auto) / 1fr;
+                row-gap: 10vw;
+            }
+        }
+    /* /landscap */
+/* /mobilefirst */
+/* others */
+    @media screen and (min-width: 1000px) {
+        /* main */
+            main{
+                /*layout*/
+                    grid-template: 100% / 60% 40%;
+
+                /*box*/
+                    height: 100vh;
+                    margin: auto;
+                    max-height: 900px;
+                    max-width: 900px;
+            }
+            /* pages */
+                main > #pages{
+                    gap: 30px;
+                    grid-template: repeat(3, auto) / repeat(2, auto);
+                    justify-content: flex-start;
+                }
+                main > #pages > a > img{
+                    width: 120px;
+                    border-radius: 50px;
+                }
+            /* /pages */
+        /* /main */
+    }
+/* /others */
